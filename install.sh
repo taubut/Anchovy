@@ -59,6 +59,7 @@ Exec=$BIN_DIR/anchovy
 Icon=anchovy
 Terminal=false
 Categories=Utility;
+StartupNotify=false
 EOF
 
 # Install icons into theme (so DE can find them)
