@@ -2,7 +2,13 @@
 
 A fast, keyboard-driven app launcher for Linux with a clean two-card UI.
 
-![Anchovy launcher](https://raw.githubusercontent.com/taubut/Anchovy/main/screenshots/preview.png)
+<p align="center">
+  <img src="screenshots/idle.png" width="360" alt="Idle"/>
+  <img src="screenshots/search.png" width="360" alt="Search"/>
+</p>
+<p align="center">
+  <img src="screenshots/settings.png" width="740" alt="Settings"/>
+</p>
 
 ## Features
 
