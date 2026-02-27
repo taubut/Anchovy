@@ -1129,6 +1129,26 @@ class Anchovy(QWidget):
 
 
 app = QApplication(sys.argv)
+
+# ── Single instance guard ─────────────────────────────────────────────────────
+PID_FILE = DATA_DIR / "anchovy.pid"
+DATA_DIR.mkdir(parents=True, exist_ok=True)
+
+# Check if another instance is already running
+if PID_FILE.exists():
+    try:
+        existing_pid = int(PID_FILE.read_text().strip())
+        os.kill(existing_pid, 0)  # signal 0 = just check if process exists
+        # Still running — quit silently
+        sys.exit(0)
+    except (ProcessLookupError, ValueError):
+        pass  # stale PID file, continue
+
+# Write our PID
+PID_FILE.write_text(str(os.getpid()))
+import atexit
+atexit.register(lambda: PID_FILE.unlink(missing_ok=True))
+
 win = Anchovy()
 win.show()
 sys.exit(app.exec())
